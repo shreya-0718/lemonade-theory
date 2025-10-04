@@ -3,20 +3,26 @@ extends CharacterBody2D
 @onready var sunshine: AnimatedSprite2D = $sunshine
 @onready var lollipop: AnimatedSprite2D = $lollipop
 
-@onready var duckie: AnimatedSprite2D = sunshine
-@onready var water: Area2D = $"../water"
+@onready var duckie: AnimatedSprite2D = lollipop
 
+@onready var water: Area2D = $"../water"
 
 const SPEED = 300.0
 var in_water := false
 
 func _ready():
 	change_skin("sunshine")
+	
+	sunshine = $sunshine
+	lollipop = $lollipop
+	
 	water.connect("body_entered", _on_water_entered)
 	water.connect("body_exited", _on_water_exited)
 
 
 func change_skin(new_skin: String):
+	data.skin = new_skin
+	
 	sunshine.visible = false
 	lollipop.visible = false
 	

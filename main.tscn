@@ -1,10 +1,12 @@
-[gd_scene load_steps=12 format=4 uid="uid://6loaxuf4twaq"]
+[gd_scene load_steps=18 format=4 uid="uid://6loaxuf4twaq"]
 
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://duckie.tscn" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://cun18sym7re4y" path="res://assets/grasset.png" id="3_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://d20mst871tebn" path="res://assets/carnival-tent.png" id="4_lquwl"]
+[ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://lemon_shop.gd" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://r6e5ntm704me" path="res://assets/background/2 Objects/6 Tent/1.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://y3fp7ny2lvc6" path="res://doors.png" id="6_7mycd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_h2yge")
@@ -1637,8 +1639,33 @@ sources/1 = SubResource("TileSetAtlasSource_7mycd")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(433, 152)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(97.7241, 81.2874)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
+atlas = ExtResource("6_7mycd")
+region = Rect2(0, 0, 26, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
+atlas = ExtResource("6_7mycd")
+region = Rect2(0, 34, 26, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kek77"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_272bh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vw27")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
-size = Vector2(72.023, 64.2529)
+size = Vector2(73.5172, 65.4483)
 
 [node name="Node" type="Node"]
 
@@ -1673,15 +1700,39 @@ polygon = PackedVector2Array(10.75, -14, 115.75, -80, 156.75, -61, 158.75, 33, 1
 position = Vector2(957, 579)
 shape = SubResource("RectangleShape2D_1bvp3")
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="lemon_shop" type="Node2D" parent="."]
 position = Vector2(180, 503)
 scale = Vector2(3.34615, 3.34615)
+script = ExtResource("5_272bh")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Node2D"]
+[node name="Area2D" type="Area2D" parent="lemon_shop"]
+visible = false
 
-[node name="lemonade stand" type="Sprite2D" parent="Node2D/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="lemon_shop/Area2D"]
+position = Vector2(0.448277, 8.36781)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="lemonade stand" type="Sprite2D" parent="lemon_shop"]
 texture = ExtResource("5_lquwl")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D/StaticBody2D"]
-position = Vector2(-0.448265, -0.448288)
+[node name="Button" type="Button" parent="lemon_shop"]
+offset_left = -9.26437
+offset_top = -16.1379
+offset_right = 11.7356
+offset_bottom = 14.8621
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="lemon_shop/Button"]
+position = Vector2(15.3103, 11.3563)
+sprite_frames = SubResource("SpriteFrames_kek77")
+autoplay = "default"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="lemon_shop"]
+visible = false
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="lemon_shop/StaticBody2D"]
+physics_interpolation_mode = 1
+position = Vector2(0, 0.149414)
 shape = SubResource("RectangleShape2D_lquwl")
+
+[connection signal="body_entered" from="lemon_shop/Area2D" to="lemon_shop" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="lemon_shop/Area2D" to="lemon_shop" method="_on_area_2d_body_exited"]
