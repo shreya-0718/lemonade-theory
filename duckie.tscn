@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://dnqny2ej88fx7"]
+[gd_scene load_steps=53 format=3 uid="uid://dnqny2ej88fx7"]
 
 [ext_resource type="Script" uid="uid://dlablyjonus2d" path="res://duckie.gd" id="1_eycnq"]
 [ext_resource type="Texture2D" uid="uid://ba65v6exv6qdf" path="res://assets/ducky_2_spritesheet.png" id="2_323f2"]
@@ -27,6 +27,30 @@ region = Rect2(64, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_efxa6"]
 atlas = ExtResource("2_323f2")
 region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fu0xj"]
+atlas = ExtResource("2_323f2")
+region = Rect2(0, 0, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7112u"]
+atlas = ExtResource("2_323f2")
+region = Rect2(32, 0, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nnge6"]
+atlas = ExtResource("2_323f2")
+region = Rect2(0, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wg8s"]
+atlas = ExtResource("2_323f2")
+region = Rect2(32, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gbg6k"]
+atlas = ExtResource("2_323f2")
+region = Rect2(64, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wctfh"]
+atlas = ExtResource("2_323f2")
+region = Rect2(96, 64, 32, 29)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dg77c"]
 atlas = ExtResource("2_323f2")
@@ -83,7 +107,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -101,6 +125,34 @@ animations = [{
 "loop": true,
 "name": &"idle_bounce",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fu0xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7112u")
+}],
+"loop": true,
+"name": &"swim_idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nnge6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wg8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gbg6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wctfh")
+}],
+"loop": true,
+"name": &"swim_move",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -170,6 +222,30 @@ region = Rect2(64, 64, 32, 32)
 atlas = ExtResource("3_vjli5")
 region = Rect2(96, 64, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_eycnq"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(0, 0, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_323f2"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(32, 0, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjli5"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(0, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgoxu"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(32, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cmju"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(64, 64, 32, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7gu5e"]
+atlas = ExtResource("3_vjli5")
+region = Rect2(96, 64, 32, 29)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_kq58d"]
 atlas = ExtResource("3_vjli5")
 region = Rect2(0, 32, 32, 32)
@@ -225,7 +301,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -243,6 +319,34 @@ animations = [{
 "loop": true,
 "name": &"idle_bounce",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eycnq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_323f2")
+}],
+"loop": true,
+"name": &"swim_idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjli5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgoxu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cmju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7gu5e")
+}],
+"loop": true,
+"name": &"swim_move",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -298,15 +402,13 @@ script = ExtResource("1_eycnq")
 position = Vector2(95, 91)
 scale = Vector2(5.25, 5.25)
 sprite_frames = SubResource("SpriteFrames_d13ii")
-animation = &"walk"
-frame = 2
-frame_progress = 0.671541
+animation = &"swim_move"
 
 [node name="lollipop" type="AnimatedSprite2D" parent="."]
 position = Vector2(94, 89)
 scale = Vector2(5.34375, 5.34375)
 sprite_frames = SubResource("SpriteFrames_4lmeg")
-animation = &"walk"
+animation = &"swim_move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(100, 164)

@@ -4,13 +4,17 @@ extends CharacterBody2D
 @onready var lollipop: AnimatedSprite2D = $lollipop
 
 @onready var duckie: AnimatedSprite2D = sunshine
+@onready var water: Area2D = $"../water"
+
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var in_water := false
 
 func _ready():
-	change_skin("lollipop")
-	duckie.play("idle")
+	change_skin("sunshine")
+	water.connect("body_entered", _on_water_entered)
+	water.connect("body_exited", _on_water_exited)
+
 
 func change_skin(new_skin: String):
 	sunshine.visible = false
@@ -24,21 +28,25 @@ func change_skin(new_skin: String):
 	duckie.visible = true
 
 func _physics_process(delta: float) -> void:
-	
-
 	var horiz := Input.get_axis("left", "right")
-	if horiz:
-		velocity.x = horiz * SPEED
-		duckie.play("walk")
-		duckie.flip_h = horiz < 0
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		duckie.play("idle")
-
 	var vert := Input.get_axis("up", "down")
-	if vert:
-		velocity.y = vert * SPEED
-		duckie.play("walk")
+
+	velocity.x = horiz * SPEED if horiz else move_toward(velocity.x, 0, SPEED)
+	velocity.y = vert * SPEED if vert else move_toward(velocity.y, 0, SPEED)
+
+	if horiz or vert:
+		duckie.play("swim_move" if in_water else "walk")
+		if horiz:
+			duckie.flip_h = horiz < 0
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	move_and_slide()
+		duckie.play("swim_idle" if in_water else "idle")
+		
+	move_and_slide()	
+
+func _on_water_entered(body):
+	if body == self:
+		in_water = true
+
+func _on_water_exited(body):
+	if body == self:
+		in_water = false
