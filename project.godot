@@ -13,11 +13,10 @@ config_version=5
 config/name="lemonade-theory"
 run/main_scene="uid://6loaxuf4twaq"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://icon.svg"
 
 [autoload]
 
-data="*res://duckie_data.gd"
+data="*res://scripts/duckie_data.gd"
 
 [editor_plugins]
 

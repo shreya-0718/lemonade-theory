@@ -7,7 +7,7 @@ var near_stand = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+	if get_tree().current_scene.scene_file_path == "res://scenes/main.tscn":
 		button.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,11 +15,11 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("select"):
 		if data.in_shop:
 			data.in_shop = false
-			get_tree().change_scene_to_file("res://main.tscn")
+			get_tree().change_scene_to_file("res://scenes/main.tscn")
 			
 		elif near_stand:
 			data.in_shop = true
-			get_tree().change_scene_to_file("res://lemon_shop.tscn")
+			get_tree().change_scene_to_file("res://scenes/lemon_shop.tscn")
 			
 		
 

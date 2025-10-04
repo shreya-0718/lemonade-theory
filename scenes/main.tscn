@@ -1,15 +1,15 @@
 [gd_scene load_steps=18 format=4 uid="uid://6loaxuf4twaq"]
 
-[ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://duckie.tscn" id="1_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_h2yge"]
-[ext_resource type="Texture2D" uid="uid://cun18sym7re4y" path="res://assets/grasset.png" id="3_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://d20mst871tebn" path="res://assets/carnival-tent.png" id="4_lquwl"]
-[ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://lemon_shop.gd" id="5_272bh"]
-[ext_resource type="Texture2D" uid="uid://r6e5ntm704me" path="res://assets/background/2 Objects/6 Tent/1.png" id="5_lquwl"]
-[ext_resource type="Texture2D" uid="uid://y3fp7ny2lvc6" path="res://doors.png" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="1_o6xl0"]
+[ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_tipki"]
+[ext_resource type="Texture2D" uid="uid://cun18sym7re4y" path="res://assets/grasset.png" id="3_85g3d"]
+[ext_resource type="Texture2D" uid="uid://d20mst871tebn" path="res://assets/carnival-tent.png" id="4_choun"]
+[ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="5_ya4ey"]
+[ext_resource type="Texture2D" uid="uid://r6e5ntm704me" path="res://assets/background/2 Objects/6 Tent/1.png" id="6_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://y3fp7ny2lvc6" path="res://assets/doors.png" id="7_trceg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
-texture = ExtResource("2_h2yge")
+texture = ExtResource("2_tipki")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -268,7 +268,7 @@ texture = ExtResource("2_h2yge")
 15:15/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7mycd"]
-texture = ExtResource("3_1bvp3")
+texture = ExtResource("3_85g3d")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -1643,11 +1643,11 @@ size = Vector2(433, 152)
 size = Vector2(97.7241, 81.2874)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
-atlas = ExtResource("6_7mycd")
+atlas = ExtResource("7_trceg")
 region = Rect2(0, 0, 26, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vw27"]
-atlas = ExtResource("6_7mycd")
+atlas = ExtResource("7_trceg")
 region = Rect2(0, 34, 26, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kek77"]
@@ -1669,7 +1669,7 @@ size = Vector2(73.5172, 65.4483)
 
 [node name="Node" type="Node"]
 
-[node name="duckie" parent="." instance=ExtResource("1_0xm2m")]
+[node name="duckie" parent="." instance=ExtResource("1_o6xl0")]
 z_index = 1
 position = Vector2(151, 216)
 
@@ -1689,7 +1689,7 @@ physics_material_override = SubResource("PhysicsMaterial_1bvp3")
 
 [node name="Carnival-tent" type="Sprite2D" parent="carnival tent/StaticBody2D"]
 position = Vector2(1.75, -78)
-texture = ExtResource("4_lquwl")
+texture = ExtResource("4_choun")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="carnival tent/StaticBody2D"]
 polygon = PackedVector2Array(10.75, -14, 115.75, -80, 156.75, -61, 158.75, 33, 115.75, 63, 71.75, 74, 71.75, 74, -69.25, 75, -116.25, 60, -158.25, 28, -157.25, -63, -80.25, -101, -37.25, -159, 1.75, -260, 77.75, -252, 59.75, -225, 38.75, -225, 19.75, -241, 8.75, -230, 37.75, -161, 62.75, -115, 112.75, -84)
@@ -1703,7 +1703,7 @@ shape = SubResource("RectangleShape2D_1bvp3")
 [node name="lemon_shop" type="Node2D" parent="."]
 position = Vector2(180, 503)
 scale = Vector2(3.34615, 3.34615)
-script = ExtResource("5_272bh")
+script = ExtResource("5_ya4ey")
 
 [node name="Area2D" type="Area2D" parent="lemon_shop"]
 visible = false
@@ -1713,7 +1713,7 @@ position = Vector2(0.448277, 8.36781)
 shape = SubResource("RectangleShape2D_7mycd")
 
 [node name="lemonade stand" type="Sprite2D" parent="lemon_shop"]
-texture = ExtResource("5_lquwl")
+texture = ExtResource("6_eb6dy")
 
 [node name="Button" type="Button" parent="lemon_shop"]
 offset_left = -9.26437

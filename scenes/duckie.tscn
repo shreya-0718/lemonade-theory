@@ -1,6 +1,6 @@
 [gd_scene load_steps=53 format=3 uid="uid://dnqny2ej88fx7"]
 
-[ext_resource type="Script" uid="uid://dlablyjonus2d" path="res://duckie.gd" id="1_eycnq"]
+[ext_resource type="Script" uid="uid://dlablyjonus2d" path="res://scripts/duckie.gd" id="1_eycnq"]
 [ext_resource type="Texture2D" uid="uid://ba65v6exv6qdf" path="res://assets/ducky_2_spritesheet.png" id="2_323f2"]
 [ext_resource type="Texture2D" uid="uid://cm4k2gsnyx73x" path="res://assets/ducky_3_spritesheet.png" id="3_vjli5"]
 
