@@ -11,10 +11,10 @@ const SPEED = 300.0
 var in_water := false
 
 func _ready():
-	change_skin("sunshine")
+	change_skin("lollipop")
 	
-	sunshine = $sunshine
-	lollipop = $lollipop
+	# sunshine = $sunshine
+	# lollipop = $lollipop
 	
 	water.connect("body_entered", _on_water_entered)
 	water.connect("body_exited", _on_water_exited)

@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://c88ri7mfw7007"]
+[gd_scene load_steps=8 format=3 uid="uid://c88ri7mfw7007"]
 
+[ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://lemon_shop.gd" id="1_2tknh"]
 [ext_resource type="Texture2D" uid="uid://cdtr6ritodk2j" path="res://assets/shop/graybg.png" id="1_fumxm"]
 [ext_resource type="Texture2D" uid="uid://djxvedqnjpmyy" path="res://assets/shop/inventory.png" id="2_pdquj"]
 [ext_resource type="Texture2D" uid="uid://dd4qd1525y13q" path="res://assets/shop/menu.png" id="3_2tknh"]
@@ -8,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bbb0xnbblbd8p" path="res://duckie_shop.gd" id="6_kcgq1"]
 
 [node name="LemonShop" type="Node2D"]
+script = ExtResource("1_2tknh")
 
 [node name="Graybg" type="Sprite2D" parent="."]
 position = Vector2(568.5, 326.5)
@@ -15,17 +17,17 @@ scale = Vector2(1.01803, 1.02605)
 texture = ExtResource("1_fumxm")
 
 [node name="Inventory" type="Sprite2D" parent="."]
-position = Vector2(948, 482)
+position = Vector2(948, 477)
 scale = Vector2(1.3, 1.34127)
 texture = ExtResource("2_pdquj")
 
 [node name="Menu" type="Sprite2D" parent="."]
-position = Vector2(381, 432)
+position = Vector2(382, 347)
 scale = Vector2(2.04274, 2.10759)
 texture = ExtResource("3_2tknh")
 
 [node name="ShopIcon" type="Sprite2D" parent="."]
-position = Vector2(851, 126)
+position = Vector2(859, 134)
 texture = ExtResource("4_i6f7l")
 
 [node name="duckie" parent="." instance=ExtResource("5_ejuyn")]

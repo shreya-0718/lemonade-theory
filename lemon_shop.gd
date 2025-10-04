@@ -1,20 +1,34 @@
 extends Node2D
 @onready var shop_area: Area2D = $Area2D
 
+@onready var button: Button = $Button
+
+var near_stand = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
+	if get_tree().current_scene.scene_file_path == "res://main.tscn":
+		button.visible = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
+	if Input.is_action_just_pressed("select"):
+		if data.in_shop:
+			data.in_shop = false
+			get_tree().change_scene_to_file("res://main.tscn")
+			
+		elif near_stand:
+			data.in_shop = true
+			get_tree().change_scene_to_file("res://lemon_shop.tscn")
+			
+		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	if body.name == "duckie":
+		button.visible = true
+		near_stand = true
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
+	if body.name == "duckie":
+		button.visible = false
+		near_stand = false
