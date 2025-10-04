@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=4 uid="uid://6loaxuf4twaq"]
+[gd_scene load_steps=20 format=4 uid="uid://6loaxuf4twaq"]
 
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_tipki"]
 [ext_resource type="Texture2D" uid="uid://cun18sym7re4y" path="res://assets/grasset.png" id="3_85g3d"]
 [ext_resource type="Texture2D" uid="uid://d20mst871tebn" path="res://assets/carnival-tent.png" id="4_choun"]
+[ext_resource type="Script" uid="uid://dsvek6byc77vn" path="res://scenes/tent.gd" id="4_tipki"]
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://r6e5ntm704me" path="res://assets/background/2 Objects/6 Tent/1.png" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://y3fp7ny2lvc6" path="res://assets/shop/doors.png" id="7_trceg"]
@@ -1636,11 +1637,8 @@ sources/1 = SubResource("TileSetAtlasSource_7mycd")
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1bvp3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
-size = Vector2(433, 152)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(97.7241, 81.2874)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
+size = Vector2(176, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_272bh"]
 atlas = ExtResource("7_trceg")
@@ -1664,6 +1662,12 @@ animations = [{
 "speed": 1.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(433, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(97.7241, 81.2874)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(73.5172, 65.4483)
 
@@ -1682,6 +1686,7 @@ collision_enabled = false
 
 [node name="carnival tent" type="Node2D" parent="."]
 position = Vector2(1, -9)
+script = ExtResource("4_tipki")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="carnival tent"]
 position = Vector2(575.25, 278)
@@ -1693,6 +1698,24 @@ texture = ExtResource("4_choun")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="carnival tent/StaticBody2D"]
 polygon = PackedVector2Array(10.75, -14, 115.75, -80, 156.75, -61, 158.75, 33, 115.75, 63, 71.75, 74, 71.75, 74, -69.25, 75, -116.25, 60, -158.25, 28, -157.25, -63, -80.25, -101, -37.25, -159, 1.75, -260, 77.75, -252, 59.75, -225, 38.75, -225, 19.75, -241, 8.75, -230, 37.75, -161, 62.75, -115, 112.75, -84)
+
+[node name="Area2D" type="Area2D" parent="carnival tent"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="carnival tent/Area2D"]
+position = Vector2(575, 341)
+shape = SubResource("RectangleShape2D_o6xl0")
+
+[node name="Button" type="Button" parent="carnival tent"]
+offset_left = 541.0
+offset_top = 173.0
+offset_right = 562.0
+offset_bottom = 204.0
+scale = Vector2(3.39132, 3.23057)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="carnival tent/Button"]
+position = Vector2(15.3103, 11.3563)
+sprite_frames = SubResource("SpriteFrames_kek77")
+autoplay = "default"
 
 [node name="water" type="Area2D" parent="."]
 
@@ -1734,5 +1757,7 @@ physics_interpolation_mode = 1
 position = Vector2(0, 0.149414)
 shape = SubResource("RectangleShape2D_lquwl")
 
+[connection signal="body_entered" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="lemon_shop/Area2D" to="lemon_shop" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="lemon_shop/Area2D" to="lemon_shop" method="_on_area_2d_body_exited"]
