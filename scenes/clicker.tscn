@@ -1,0 +1,99 @@
+[gd_scene load_steps=16 format=3 uid="uid://o3yk1mlgj0p7"]
+
+[ext_resource type="Script" uid="uid://cdxt6comdcujf" path="res://scenes/clicker.gd" id="1_6ovwv"]
+[ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="1_kmipb"]
+[ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="2_smtw7"]
+[ext_resource type="Script" uid="uid://c2fspwe41lqso" path="res://scenes/duckie_roulette.gd" id="3_6ovwv"]
+[ext_resource type="Texture2D" uid="uid://t4s8tsg3ojvg" path="res://assets/casino/roulette/backgroundd.png" id="4_grrbb"]
+[ext_resource type="Script" uid="uid://cjn648e2xflpf" path="res://scenes/coin.gd" id="6_61uux"]
+[ext_resource type="Texture2D" uid="uid://rndbao8efevo" path="res://assets/casino/coin.png" id="6_grrbb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xy2ko"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgvfs"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lqqel"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y6yl"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(100, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of7c1"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(120, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7jfgg"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(140, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcp6i"]
+atlas = ExtResource("6_grrbb")
+region = Rect2(160, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61uux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xy2ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgvfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lqqel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y6yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of7c1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7jfgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcp6i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Clicker" type="Node2D"]
+script = ExtResource("1_6ovwv")
+
+[node name="coins display" parent="." instance=ExtResource("1_kmipb")]
+z_index = 10
+
+[node name="duckie" parent="." instance=ExtResource("2_smtw7")]
+z_index = 3
+position = Vector2(159, 406)
+scale = Vector2(1.01425, 1.01425)
+script = ExtResource("3_6ovwv")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(581.576, 323)
+scale = Vector2(1.01425, 1.01425)
+texture = ExtResource("4_grrbb")
+
+[node name="coin" type="Button" parent="."]
+offset_left = 652.0
+offset_top = 176.0
+offset_right = 1093.0
+offset_bottom = 607.0
+script = ExtResource("6_61uux")
+
+[node name="coin spin" type="AnimatedSprite2D" parent="coin"]
+z_index = 6
+position = Vector2(216, 218)
+scale = Vector2(21.9888, 21.9888)
+sprite_frames = SubResource("SpriteFrames_61uux")
+autoplay = "default"
+
+[connection signal="pressed" from="coin" to="coin" method="_on_pressed"]

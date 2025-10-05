@@ -6,6 +6,9 @@ extends Node2D
 
 var near_stand = false
 var transaction = false
+var bought = false
+
+var lemonades = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,8 +21,8 @@ func _process(delta: float) -> void:
 		if data.in_shop and !transaction:
 			data.in_shop = false
 			get_tree().change_scene_to_file("res://scenes/main.tscn")
-			
-		if data.in_shop and transaction:
+		
+		elif data.in_shop and transaction:
 			transaction = false
 			
 	if Input.is_action_just_pressed("select"):
@@ -29,12 +32,27 @@ func _process(delta: float) -> void:
 		
 		elif data.in_shop and !transaction:
 			transaction = true
+			await get_tree().create_timer(0.5).timeout
+			
 		
 		elif data.in_shop and transaction:
+			bought = true
 			transaction = false
 		
 	if buy != null:
 		buy.visible = transaction
+		$"not enough".visible = false
+		
+	if bought:
+		if data.coins >= int($"buy?/Label".text):
+			data.coins -= int($"buy?/Label".text)
+			lemonades += 1
+		else:
+			$"not enough".visible = true
+			await get_tree().create_timer(1.0).timeout # Waits for 2 seconds
+			$"not enough".visible = false
+		transaction = false
+		bought = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "duckie":
