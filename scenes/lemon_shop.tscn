@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c88ri7mfw7007"]
+[gd_scene load_steps=9 format=3 uid="uid://c88ri7mfw7007"]
 
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="1_m6f1e"]
 [ext_resource type="Texture2D" uid="uid://cdtr6ritodk2j" path="res://assets/shop/graybg.png" id="2_bpc5a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://c1rlieia8avx" path="res://assets/shop/shop_icon.png" id="5_q4v5x"]
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="6_a343m"]
 [ext_resource type="Script" uid="uid://bbb0xnbblbd8p" path="res://scripts/duckie_shop.gd" id="7_k26x1"]
+[ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="8_bpc5a"]
 
 [node name="LemonShop" type="Node2D"]
 script = ExtResource("1_m6f1e")
@@ -33,3 +34,5 @@ texture = ExtResource("5_q4v5x")
 [node name="duckie" parent="." instance=ExtResource("6_a343m")]
 position = Vector2(955, 45)
 script = ExtResource("7_k26x1")
+
+[node name="coins display" parent="." instance=ExtResource("8_bpc5a")]

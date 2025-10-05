@@ -1,13 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://1uhpedpbj5ny"]
+[gd_scene load_steps=7 format=3 uid="uid://1uhpedpbj5ny"]
 
 [ext_resource type="Script" uid="uid://b6si112ph253w" path="res://scenes/roulette.gd" id="1_jyskt"]
 [ext_resource type="Texture2D" uid="uid://t4s8tsg3ojvg" path="res://assets/casino/roulette/backgroundd.png" id="1_x8m2p"]
+[ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="2_iqt6o"]
 [ext_resource type="Texture2D" uid="uid://gm52bpbu0plp" path="res://assets/casino/roulette/casino.png" id="2_uqyis"]
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="3_u4f06"]
 [ext_resource type="Script" uid="uid://c2fspwe41lqso" path="res://scenes/duckie_roulette.gd" id="4_u4f06"]
 
 [node name="Roulette" type="Node2D"]
 script = ExtResource("1_jyskt")
+
+[node name="coins display" parent="." instance=ExtResource("2_iqt6o")]
 
 [node name="bg" type="Sprite2D" parent="."]
 position = Vector2(581.576, 323)

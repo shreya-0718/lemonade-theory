@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6loaxuf4twaq"]
+[gd_scene load_steps=23 format=4 uid="uid://6loaxuf4twaq"]
 
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_tipki"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="5_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://r6e5ntm704me" path="res://assets/background/2 Objects/6 Tent/1.png" id="6_eb6dy"]
 [ext_resource type="Texture2D" uid="uid://y3fp7ny2lvc6" path="res://assets/shop/doors.png" id="7_trceg"]
+[ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="9_85g3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bvp3"]
 texture = ExtResource("2_tipki")
@@ -1785,6 +1786,8 @@ scale = Vector2(35.411, 10.2858)
 shape = SubResource("RectangleShape2D_tipki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="coins display" parent="." instance=ExtResource("9_85g3d")]
 
 [connection signal="body_entered" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_exited"]

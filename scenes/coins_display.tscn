@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://bo826ond6yxd2"]
+
+[ext_resource type="Script" uid="uid://b0qq4v87lpk5i" path="res://scenes/coins_display.gd" id="1_e2dl7"]
+[ext_resource type="Texture2D" uid="uid://deui8stctrts3" path="res://assets/Coins.png" id="2_3jk1g"]
+[ext_resource type="Texture2D" uid="uid://byy1gqwfoawab" path="res://assets/Coins (1).png" id="3_rsc3a"]
+[ext_resource type="LabelSettings" uid="uid://cudr0kv01reuy" path="res://assets/label_settings.tres" id="4_ws270"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eb6dy"]
+atlas = ExtResource("2_3jk1g")
+region = Rect2(0, 0, 430, 430)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trceg"]
+atlas = ExtResource("3_rsc3a")
+region = Rect2(0, 0, 430, 430)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8y0u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eb6dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trceg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.5
+}]
+
+[sub_resource type="FontFile" id="FontFile_eb6dy"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="coins display" type="Node2D"]
+script = ExtResource("1_e2dl7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(941, 96)
+scale = Vector2(0.869767, 0.869767)
+sprite_frames = SubResource("SpriteFrames_a8y0u")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 800.0
+offset_top = 57.0
+offset_right = 1081.0
+offset_bottom = 135.0
+theme_override_fonts/font = SubResource("FontFile_eb6dy")
+theme_override_font_sizes/font_size = 0
+text = "too many!"
+label_settings = ExtResource("4_ws270")
+horizontal_alignment = 2
+vertical_alignment = 1

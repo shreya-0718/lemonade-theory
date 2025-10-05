@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://x01utgll2bhl"]
+[gd_scene load_steps=25 format=4 uid="uid://x01utgll2bhl"]
 
 [ext_resource type="Texture2D" uid="uid://b542tw2076btf" path="res://assets/casino/2D_TopDown_Tileset_Casino_1024x512.png" id="1_yq41b"]
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="2_6hi0d"]
@@ -8,6 +8,7 @@
 [ext_resource type="Theme" uid="uid://dxrlifjn5flsc" path="res://assets/default_button.tres" id="6_a0uha"]
 [ext_resource type="Texture2D" uid="uid://dj34aj2jahhd7" path="res://assets/casino/play.png" id="6_vhbw6"]
 [ext_resource type="Script" uid="uid://b6si112ph253w" path="res://scenes/roulette.gd" id="6_wxb3w"]
+[ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="9_4s0uq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hi0d"]
 texture = ExtResource("1_yq41b")
@@ -1422,6 +1423,8 @@ position = Vector2(44, 47)
 scale = Vector2(0.239, 0.240537)
 sprite_frames = SubResource("SpriteFrames_dfu5g")
 autoplay = "default"
+
+[node name="coins display" parent="." instance=ExtResource("9_4s0uq")]
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
