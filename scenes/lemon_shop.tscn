@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c88ri7mfw7007"]
+[gd_scene load_steps=21 format=3 uid="uid://c88ri7mfw7007"]
 
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="1_m6f1e"]
 [ext_resource type="Texture2D" uid="uid://cdtr6ritodk2j" path="res://assets/shop/graybg.png" id="2_bpc5a"]
@@ -15,7 +15,14 @@
 [ext_resource type="Texture2D" uid="uid://dqonl14mix7ka" path="res://assets/shop/lemonades/5strawberry.png" id="13_1mwdi"]
 [ext_resource type="Texture2D" uid="uid://b7v2e63dpthku" path="res://assets/shop/lemonades/4orange.png" id="14_j6p16"]
 [ext_resource type="Texture2D" uid="uid://dwloa2ifu3x45" path="res://assets/shop/wanna buy.png" id="15_dlrbr"]
+[ext_resource type="Texture2D" uid="uid://d21p8soyb2nbh" path="res://assets/shop/lock.png" id="16_1mwdi"]
 [ext_resource type="FontFile" uid="uid://c2e76mikcvp7e" path="res://assets/fonts/ByteBounce.ttf" id="16_1vbqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1mwdi"]
+font = ExtResource("16_1vbqt")
+font_size = 180
+outline_size = 30
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_rkoyq"]
 font = ExtResource("16_1vbqt")
@@ -25,6 +32,8 @@ font_size = 100
 font = ExtResource("16_1vbqt")
 font_size = 200
 font_color = Color(0.737255, 0.219608, 0.203922, 1)
+outline_size = 9
+outline_color = Color(0.917647, 0.643137, 0.443137, 1)
 
 [node name="LemonShop" type="Node2D"]
 script = ExtResource("1_m6f1e")
@@ -38,6 +47,20 @@ texture = ExtResource("2_bpc5a")
 position = Vector2(194, 489)
 scale = Vector2(1.3, 1.34127)
 texture = ExtResource("3_6l4nq")
+
+[node name="1Normal" type="Sprite2D" parent="Inventory"]
+position = Vector2(-97.6923, -58.1538)
+scale = Vector2(0.116001, 0.112432)
+texture = ExtResource("9_q4v5x")
+
+[node name="Label" type="Label" parent="Inventory/1Normal"]
+offset_left = -225.0
+offset_top = -225.0
+offset_right = 33.0
+offset_bottom = -101.0
+text = "0"
+label_settings = SubResource("LabelSettings_1mwdi")
+horizontal_alignment = 1
 
 [node name="Menu" type="Sprite2D" parent="."]
 position = Vector2(752, 415)
@@ -83,7 +106,46 @@ position = Vector2(865, 354)
 scale = Vector2(0.592857, 0.592857)
 texture = ExtResource("14_j6p16")
 
+[node name="locks" type="Node2D" parent="lemonades"]
+
+[node name="Lock" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(610, 343)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock2" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(749, 342)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock3" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(888, 343)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock4" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(1012, 344)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock5" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(611, 506)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock6" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(750, 505)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock7" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(889, 506)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock8" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(1013, 507)
+texture = ExtResource("16_1mwdi")
+
+[node name="Lock9" type="Sprite2D" parent="lemonades/locks"]
+position = Vector2(482, 506)
+texture = ExtResource("16_1mwdi")
+
 [node name="buy?" type="Node2D" parent="."]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="buy?"]
 position = Vector2(559, 308)

@@ -7,3 +7,4 @@ var in_roul = false
 var in_clicker = false
 
 var coins = 4
+var lemonades = 0

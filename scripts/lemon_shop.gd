@@ -4,11 +4,13 @@ extends Node2D
 @onready var button: Button = $Button
 @onready var buy: Node2D = $"buy?"
 
+@onready var inven_lem: Sprite2D = $"Inventory/1Normal"
+@onready var lem_label: Label = $"Inventory/1Normal/Label"
+
 var near_stand = false
 var transaction = false
 var bought = false
 
-var lemonades = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,13 +48,22 @@ func _process(delta: float) -> void:
 	if bought:
 		if data.coins >= int($"buy?/Label".text):
 			data.coins -= int($"buy?/Label".text)
-			lemonades += 1
+			data.lemonades += 1
 		else:
 			$"not enough".visible = true
 			await get_tree().create_timer(1.0).timeout # Waits for 2 seconds
 			$"not enough".visible = false
 		transaction = false
 		bought = false
+	
+	if inven_lem != null :
+		if data.lemonades > 0:
+			inven_lem.visible = true
+			lem_label.visible = true
+			lem_label.set_text(str(data.lemonades))
+		else:
+			inven_lem.visible = false
+			lem_label.visible = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "duckie":
