@@ -12,15 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("select"):
-		if data.in_casino:
-			data.in_casino = false
-			get_tree().change_scene_to_file("res://scenes/main.tscn")
-			
-		elif near_tent:
-			data.in_shop = true
-			get_tree().change_scene_to_file("res://scenes/casino.tscn")
-			
+	if Input.is_action_just_pressed("select") and near_tent:
+		get_tree().change_scene_to_file("res://scenes/casino.tscn")
 		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

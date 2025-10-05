@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://6loaxuf4twaq"]
+[gd_scene load_steps=22 format=4 uid="uid://6loaxuf4twaq"]
 
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="1_o6xl0"]
 [ext_resource type="Texture2D" uid="uid://q5nk0eblbggf" path="res://assets/background/1 Tiles/FieldsTileset.png" id="2_tipki"]
@@ -1666,16 +1666,22 @@ animations = [{
 size = Vector2(433, 152)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
-size = Vector2(97.7241, 81.2874)
+size = Vector2(102.207, 60.3679)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
 size = Vector2(73.5172, 65.4483)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tipki"]
+size = Vector2(35.5006, 2.12505)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_85g3d"]
+size = Vector2(20, 699)
 
 [node name="Node" type="Node"]
 
 [node name="duckie" parent="." instance=ExtResource("1_o6xl0")]
 z_index = 1
-position = Vector2(151, 216)
+position = Vector2(152, 216)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 physics_interpolation_mode = 2
@@ -1700,6 +1706,7 @@ texture = ExtResource("4_choun")
 polygon = PackedVector2Array(10.75, -14, 115.75, -80, 156.75, -61, 158.75, 33, 115.75, 63, 71.75, 74, 71.75, 74, -69.25, 75, -116.25, 60, -158.25, 28, -157.25, -63, -80.25, -101, -37.25, -159, 1.75, -260, 77.75, -252, 59.75, -225, 38.75, -225, 19.75, -241, 8.75, -230, 37.75, -161, 62.75, -115, 112.75, -84)
 
 [node name="Area2D" type="Area2D" parent="carnival tent"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="carnival tent/Area2D"]
 position = Vector2(575, 341)
@@ -1729,10 +1736,9 @@ scale = Vector2(3.34615, 3.34615)
 script = ExtResource("5_ya4ey")
 
 [node name="Area2D" type="Area2D" parent="lemon_shop"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="lemon_shop/Area2D"]
-position = Vector2(0.448277, 8.36781)
+position = Vector2(-1.79314, 21.2184)
 shape = SubResource("RectangleShape2D_7mycd")
 
 [node name="lemonade stand" type="Sprite2D" parent="lemon_shop"]
@@ -1756,6 +1762,27 @@ visible = false
 physics_interpolation_mode = 1
 position = Vector2(0, 0.149414)
 shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="dont you dare leave" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="dont you dare leave"]
+position = Vector2(575, 61)
+scale = Vector2(35.411, 10.2858)
+shape = SubResource("RectangleShape2D_tipki")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dont you dare leave"]
+position = Vector2(-6, 340)
+shape = SubResource("RectangleShape2D_85g3d")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="dont you dare leave"]
+position = Vector2(1160, 329)
+shape = SubResource("RectangleShape2D_85g3d")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="dont you dare leave"]
+position = Vector2(579, 680)
+scale = Vector2(35.411, 10.2858)
+shape = SubResource("RectangleShape2D_tipki")
 
 [connection signal="body_entered" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_exited"]
