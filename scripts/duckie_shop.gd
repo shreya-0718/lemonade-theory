@@ -8,7 +8,6 @@ extends CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	change_skin(data.skin)
-	duckie.flip_h = true
 	duckie.play("idle")
 
 

@@ -1425,6 +1425,7 @@ sprite_frames = SubResource("SpriteFrames_dfu5g")
 autoplay = "default"
 
 [node name="coins display" parent="." instance=ExtResource("9_4s0uq")]
+z_index = 10
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]

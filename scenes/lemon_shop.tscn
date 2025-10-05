@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c88ri7mfw7007"]
+[gd_scene load_steps=18 format=3 uid="uid://c88ri7mfw7007"]
 
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="1_m6f1e"]
 [ext_resource type="Texture2D" uid="uid://cdtr6ritodk2j" path="res://assets/shop/graybg.png" id="2_bpc5a"]
@@ -8,6 +8,18 @@
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="6_a343m"]
 [ext_resource type="Script" uid="uid://bbb0xnbblbd8p" path="res://scripts/duckie_shop.gd" id="7_k26x1"]
 [ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="8_bpc5a"]
+[ext_resource type="Script" uid="uid://bb3egedpgaqrt" path="res://scenes/lemonades.gd" id="9_4fd1g"]
+[ext_resource type="Texture2D" uid="uid://6lse8mxl0d4d" path="res://assets/shop/lemonades/1normal.png" id="9_q4v5x"]
+[ext_resource type="Texture2D" uid="uid://eg314rvgf7yr" path="res://assets/shop/lemonades/2jug.png" id="10_a343m"]
+[ext_resource type="Texture2D" uid="uid://df8v8cl6b2062" path="res://assets/shop/lemonades/3mint.png" id="11_k26x1"]
+[ext_resource type="Texture2D" uid="uid://dqonl14mix7ka" path="res://assets/shop/lemonades/5strawberry.png" id="13_1mwdi"]
+[ext_resource type="Texture2D" uid="uid://b7v2e63dpthku" path="res://assets/shop/lemonades/4orange.png" id="14_j6p16"]
+[ext_resource type="Texture2D" uid="uid://dwloa2ifu3x45" path="res://assets/shop/wanna buy.png" id="15_dlrbr"]
+[ext_resource type="FontFile" uid="uid://c2e76mikcvp7e" path="res://assets/fonts/ByteBounce.ttf" id="16_1vbqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkoyq"]
+font = ExtResource("16_1vbqt")
+font_size = 100
 
 [node name="LemonShop" type="Node2D"]
 script = ExtResource("1_m6f1e")
@@ -18,21 +30,70 @@ scale = Vector2(1.01803, 1.02605)
 texture = ExtResource("2_bpc5a")
 
 [node name="Inventory" type="Sprite2D" parent="."]
-position = Vector2(948, 477)
+position = Vector2(194, 489)
 scale = Vector2(1.3, 1.34127)
 texture = ExtResource("3_6l4nq")
 
 [node name="Menu" type="Sprite2D" parent="."]
-position = Vector2(382, 347)
+position = Vector2(752, 415)
 scale = Vector2(2.04274, 2.10759)
 texture = ExtResource("4_7ayh5")
 
 [node name="ShopIcon" type="Sprite2D" parent="."]
-position = Vector2(859, 134)
+position = Vector2(101, 148)
 texture = ExtResource("5_q4v5x")
 
 [node name="duckie" parent="." instance=ExtResource("6_a343m")]
-position = Vector2(955, 45)
+position = Vector2(201, 62)
 script = ExtResource("7_k26x1")
 
 [node name="coins display" parent="." instance=ExtResource("8_bpc5a")]
+
+[node name="lemonades" type="Node2D" parent="."]
+position = Vector2(32, -29)
+script = ExtResource("9_4fd1g")
+
+[node name="1Normal" type="Sprite2D" parent="lemonades"]
+position = Vector2(455, 336)
+scale = Vector2(0.19489, 0.19489)
+texture = ExtResource("9_q4v5x")
+
+[node name="2Jug" type="Sprite2D" parent="lemonades"]
+position = Vector2(589, 341)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("10_a343m")
+
+[node name="3Mint" type="Sprite2D" parent="lemonades"]
+position = Vector2(722, 332)
+scale = Vector2(0.226, 0.226)
+texture = ExtResource("11_k26x1")
+
+[node name="4Strawberry" type="Sprite2D" parent="lemonades"]
+position = Vector2(983, 333)
+scale = Vector2(0.292, 0.292)
+texture = ExtResource("13_1mwdi")
+
+[node name="5Orange" type="Sprite2D" parent="lemonades"]
+position = Vector2(865, 354)
+scale = Vector2(0.592857, 0.592857)
+texture = ExtResource("14_j6p16")
+
+[node name="buy?" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="buy?"]
+position = Vector2(559, 308)
+scale = Vector2(1.46167, 1.46167)
+texture = ExtResource("15_dlrbr")
+
+[node name="1Normal2" type="Sprite2D" parent="buy?"]
+position = Vector2(550, 303)
+scale = Vector2(0.430361, 0.430361)
+texture = ExtResource("9_q4v5x")
+
+[node name="Label" type="Label" parent="buy?"]
+offset_left = 487.0
+offset_top = 410.0
+offset_right = 531.0
+offset_bottom = 479.0
+text = "2"
+label_settings = SubResource("LabelSettings_rkoyq")
