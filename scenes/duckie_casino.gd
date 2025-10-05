@@ -5,8 +5,6 @@ extends CharacterBody2D
 
 @onready var duckie: AnimatedSprite2D = lollipop
 
-@onready var water: Area2D = $"../water"
-
 const SPEED = 300.0
 
 func _ready() -> void:

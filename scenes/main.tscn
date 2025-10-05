@@ -1784,6 +1784,8 @@ position = Vector2(579, 680)
 scale = Vector2(35.411, 10.2858)
 shape = SubResource("RectangleShape2D_tipki")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
 [connection signal="body_entered" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="carnival tent/Area2D" to="carnival tent" method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="lemon_shop/Area2D" to="lemon_shop" method="_on_area_2d_body_entered"]

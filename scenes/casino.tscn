@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://x01utgll2bhl"]
+[gd_scene load_steps=24 format=4 uid="uid://x01utgll2bhl"]
 
 [ext_resource type="Texture2D" uid="uid://b542tw2076btf" path="res://assets/casino/2D_TopDown_Tileset_Casino_1024x512.png" id="1_yq41b"]
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="2_6hi0d"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://da75omras4x8f" path="res://scenes/exit_c.gd" id="4_x841i"]
 [ext_resource type="Theme" uid="uid://dxrlifjn5flsc" path="res://assets/default_button.tres" id="6_a0uha"]
 [ext_resource type="Texture2D" uid="uid://dj34aj2jahhd7" path="res://assets/casino/play.png" id="6_vhbw6"]
+[ext_resource type="Script" uid="uid://b6si112ph253w" path="res://scenes/roulette.gd" id="6_wxb3w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6hi0d"]
 texture = ExtResource("1_yq41b")
@@ -1394,6 +1395,7 @@ scale = Vector2(35.411, 10.2858)
 shape = SubResource("RectangleShape2D_vhbw6")
 
 [node name="roulette" type="Node2D" parent="."]
+script = ExtResource("6_wxb3w")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="roulette"]
 
@@ -1423,3 +1425,5 @@ autoplay = "default"
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
+[connection signal="body_entered" from="roulette/Area2D" to="roulette" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="roulette/Area2D" to="roulette" method="_on_area_2d_body_exited"]

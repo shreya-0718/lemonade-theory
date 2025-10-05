@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://1uhpedpbj5ny"]
+
+[ext_resource type="Script" uid="uid://b6si112ph253w" path="res://scenes/roulette.gd" id="1_jyskt"]
+[ext_resource type="Texture2D" uid="uid://t4s8tsg3ojvg" path="res://assets/casino/roulette/backgroundd.png" id="1_x8m2p"]
+[ext_resource type="Texture2D" uid="uid://gm52bpbu0plp" path="res://assets/casino/roulette/casino.png" id="2_uqyis"]
+[ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="3_u4f06"]
+[ext_resource type="Script" uid="uid://c2fspwe41lqso" path="res://scenes/duckie_roulette.gd" id="4_u4f06"]
+
+[node name="Roulette" type="Node2D"]
+script = ExtResource("1_jyskt")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(581.576, 323)
+scale = Vector2(1.01425, 1.01425)
+texture = ExtResource("1_x8m2p")
+
+[node name="Casino" type="Sprite2D" parent="."]
+position = Vector2(841, 323)
+scale = Vector2(1.244, 1.244)
+texture = ExtResource("2_uqyis")
+
+[node name="duckie" parent="." instance=ExtResource("3_u4f06")]
+position = Vector2(123, 397)
+script = ExtResource("4_u4f06")
