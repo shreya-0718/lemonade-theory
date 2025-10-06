@@ -153,7 +153,6 @@ position = Vector2(482, 506)
 texture = ExtResource("16_1mwdi")
 
 [node name="buy?" type="Node2D" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="buy?"]
 position = Vector2(559, 308)
