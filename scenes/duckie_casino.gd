@@ -23,6 +23,8 @@ func change_skin(new_skin: String):
 	duckie.visible = true
 
 func _physics_process(delta: float) -> void:
+	change_skin(data.skin)
+
 	var horiz := Input.get_axis("left", "right")
 	var vert := Input.get_axis("up", "down")
 

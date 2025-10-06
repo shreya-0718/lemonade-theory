@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c88ri7mfw7007"]
+[gd_scene load_steps=22 format=3 uid="uid://c88ri7mfw7007"]
 
 [ext_resource type="Script" uid="uid://cnybtwqx64d45" path="res://scripts/lemon_shop.gd" id="1_m6f1e"]
 [ext_resource type="Texture2D" uid="uid://cdtr6ritodk2j" path="res://assets/shop/graybg.png" id="2_bpc5a"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dnqny2ej88fx7" path="res://scenes/duckie.tscn" id="6_a343m"]
 [ext_resource type="Script" uid="uid://bbb0xnbblbd8p" path="res://scripts/duckie_shop.gd" id="7_k26x1"]
 [ext_resource type="PackedScene" uid="uid://bo826ond6yxd2" path="res://scenes/coins_display.tscn" id="8_bpc5a"]
+[ext_resource type="Script" uid="uid://ia3tx1xd7no5" path="res://scenes/shop_icon.gd" id="8_j6p16"]
 [ext_resource type="Script" uid="uid://bb3egedpgaqrt" path="res://scenes/lemonades.gd" id="9_4fd1g"]
 [ext_resource type="Texture2D" uid="uid://6lse8mxl0d4d" path="res://assets/shop/lemonades/1normal.png" id="9_q4v5x"]
 [ext_resource type="Texture2D" uid="uid://eg314rvgf7yr" path="res://assets/shop/lemonades/2jug.png" id="10_a343m"]
@@ -67,9 +68,16 @@ position = Vector2(752, 415)
 scale = Vector2(2.04274, 2.10759)
 texture = ExtResource("4_7ayh5")
 
-[node name="ShopIcon" type="Sprite2D" parent="."]
-position = Vector2(101, 148)
+[node name="Button" type="Button" parent="."]
+offset_left = 35.0
+offset_top = 74.0
+offset_right = 194.0
+offset_bottom = 241.0
+
+[node name="ShopIcon" type="Sprite2D" parent="Button"]
+position = Vector2(76, 74)
 texture = ExtResource("5_q4v5x")
+script = ExtResource("8_j6p16")
 
 [node name="duckie" parent="." instance=ExtResource("6_a343m")]
 position = Vector2(201, 62)
@@ -174,3 +182,5 @@ text = "NOT ENOUGH
 COINS"
 label_settings = SubResource("LabelSettings_4fd1g")
 horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="Button/ShopIcon" method="_on_button_pressed"]

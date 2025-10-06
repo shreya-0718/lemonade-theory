@@ -7,7 +7,6 @@ extends CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	change_skin(data.skin)
 	duckie.play("idle")
 
 func change_skin(new_skin: String):
@@ -23,4 +22,5 @@ func change_skin(new_skin: String):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	change_skin(data.skin)
+	duckie.play("idle")

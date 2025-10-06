@@ -21,6 +21,12 @@ func _process(delta: float) -> void:
 		elif near_table:
 			data.in_roul = true
 			get_tree().change_scene_to_file("res://scenes/roulette.tscn")
+	
+	if Input.is_action_just_pressed("left"):
+		if data.in_roul:
+			data.in_roul = false
+			print("leaving...")
+			get_tree().change_scene_to_file("res://scenes/casino.tscn")
 			
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
