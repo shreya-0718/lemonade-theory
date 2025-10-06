@@ -6,5 +6,5 @@ var in_casino = false
 var in_roul = false
 var in_clicker = false
 
-var coins = 4
+var coins = 0
 var lemonades = 0

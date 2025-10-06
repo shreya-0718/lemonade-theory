@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.4", "Mobile")
 [autoload]
 
 data="*res://scripts/duckie_data.gd"
+MusicManager="*res://scenes/music.tscn"
 
 [editor_plugins]
 

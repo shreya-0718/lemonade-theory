@@ -11,7 +11,6 @@ var near_stand = false
 var transaction = false
 var bought = false
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if get_tree().current_scene.scene_file_path == "res://scenes/main.tscn":

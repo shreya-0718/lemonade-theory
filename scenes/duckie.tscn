@@ -396,6 +396,7 @@ animations = [{
 size = Vector2(120, 22)
 
 [node name="duckie" type="CharacterBody2D"]
+position = Vector2(-1066, 425)
 script = ExtResource("1_eycnq")
 
 [node name="sunshine" type="AnimatedSprite2D" parent="."]
