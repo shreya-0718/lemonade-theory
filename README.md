@@ -2,6 +2,8 @@
 
 A game about ducks and lemonade :) With mini games (more to come)!
 
+Play it here!: https://shreyaluu.itch.io/lemonade-theory
+
 <img width="367" height="207" alt="image" src="https://github.com/user-attachments/assets/1b948b8e-c975-4ce1-a88a-2c0c6de4feb3" />
 
 ## Features
