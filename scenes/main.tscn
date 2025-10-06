@@ -1765,7 +1765,6 @@ position = Vector2(0, 0.149414)
 shape = SubResource("RectangleShape2D_lquwl")
 
 [node name="dont you dare leave" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="dont you dare leave"]
 position = Vector2(575, 61)
